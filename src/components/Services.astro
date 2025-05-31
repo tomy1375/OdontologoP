@@ -1,55 +1,346 @@
 ---
 const services = [
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>`,
+    id: "preventivo",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-4 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>`,
     title: "Cuidado Preventivo",
-    description: "Chequeos regulares y tratamientos con flúor para prevenir caries y enfermedades de las encías."
+    description: "Exámenes regulares, limpiezas profesionales y tratamientos con flúor para prevenir caries y enfermedades de las encías.",
+    modalContent: {
+      title: "Cuidado Preventivo",
+      subtitle: "La base de una sonrisa saludable",
+      details: [
+        "Exámenes dentales completos cada 6 meses",
+        "Limpiezas profesionales con ultrasonido",
+        "Aplicación de flúor para fortalecer el esmalte",
+        "Selladores dentales para prevenir caries",
+        "Detección temprana de problemas bucales",
+        "Educación sobre higiene oral personalizada"
+      ],
+      benefits: "La prevención es la clave para mantener una sonrisa saludable durante toda la vida. Nuestros tratamientos preventivos te ayudan a evitar problemas costosos y dolorosos en el futuro.",
+      duration: "30-60 minutos",
+      frequency: "Cada 6 meses"
+    }
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+    id: "restaurativo",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-4 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>`,
     title: "Cuidado Restaurativo",
-    description: "Empastes, coronas, puentes y dentaduras para restaurar dientes dañados o faltantes."
+    description: "Empastes estéticos, coronas de porcelana, puentes y dentaduras para restaurar dientes dañados o faltantes con resultados naturales.",
+    modalContent: {
+      title: "Cuidado Restaurativo",
+      subtitle: "Restauramos la función y belleza de tu sonrisa",
+      details: [
+        "Empastes de composite del color del diente",
+        "Coronas de porcelana de alta calidad",
+        "Puentes dentales para reemplazar dientes faltantes",
+        "Dentaduras parciales y completas",
+        "Incrustaciones y onlays cerámicos",
+        "Reparación de dientes fracturados"
+      ],
+      benefits: "Nuestros tratamientos restaurativos devuelven la función completa a tus dientes mientras mantienen una apariencia natural y estética.",
+      duration: "1-3 horas por sesión",
+      frequency: "Según necesidad"
+    }
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    id: "ortodontico",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-4 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" /></svg>`,
     title: "Cuidado Ortodóntico",
-    description: "Brackets y alineadores transparentes para enderezar los dientes y corregir problemas de mordida."
+    description: "Brackets tradicionales, alineadores transparentes y otras opciones para corregir la posición de los dientes y mejorar la mordida.",
+    modalContent: {
+      title: "Cuidado Ortodóntico",
+      subtitle: "Sonrisas perfectamente alineadas",
+      details: [
+        "Brackets metálicos tradicionales",
+        "Brackets estéticos de cerámica",
+        "Alineadores transparentes (Invisalign)",
+        "Ortodoncia interceptiva para niños",
+        "Retenedores post-tratamiento",
+        "Corrección de mordida y maloclusiones"
+      ],
+      benefits: "Una sonrisa bien alineada no solo mejora tu apariencia, sino que también facilita la limpieza dental y puede prevenir problemas de mandíbula.",
+      duration: "12-24 meses promedio",
+      frequency: "Controles mensuales"
+    }
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    id: "cirugia",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-4 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
     title: "Cirugía Oral",
-    description: "Extracciones, eliminación de muelas del juicio y otros procedimientos quirúrgicos."
+    description: "Extracciones dentales, eliminación de muelas del juicio y otros procedimientos quirúrgicos realizados con precisión y cuidado.",
+    modalContent: {
+      title: "Cirugía Oral",
+      subtitle: "Procedimientos quirúrgicos especializados",
+      details: [
+        "Extracciones simples y complejas",
+        "Cirugía de muelas del juicio",
+        "Cirugía periodontal",
+        "Biopsias de tejidos orales",
+        "Frenectomías",
+        "Preparación para implantes dentales"
+      ],
+      benefits: "Realizamos cirugías orales con técnicas mínimamente invasivas para garantizar una recuperación rápida y cómoda.",
+      duration: "30 minutos - 2 horas",
+      frequency: "Según necesidad médica"
+    }
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+    id: "cosmetica",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-4 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>`,
     title: "Odontología Cosmética",
-    description: "Blanqueamiento dental, carillas y otros procedimientos para mejorar la apariencia de los dientes."
+    description: "Blanqueamiento dental, carillas de porcelana y diseño de sonrisa para transformar la apariencia de tus dientes.",
+    modalContent: {
+      title: "Odontología Cosmética",
+      subtitle: "Transforma tu sonrisa",
+      details: [
+        "Blanqueamiento dental profesional",
+        "Carillas de porcelana ultra-finas",
+        "Diseño de sonrisa personalizado",
+        "Contorneado y remodelado dental",
+        "Bonding estético",
+        "Cierre de espacios entre dientes"
+      ],
+      benefits: "Mejora la apariencia de tu sonrisa con tratamientos que combinan arte y ciencia para resultados naturales y duraderos.",
+      duration: "1-3 sesiones",
+      frequency: "Según plan de tratamiento"
+    }
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    id: "implantes",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-cyan-500 mb-4 mx-auto lg:mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
     title: "Implantes Dentales",
-    description: "Los implantes dentales son una forma popular y efectiva de reemplazar dientes perdidos."
+    description: "Soluciones permanentes y de aspecto natural para reemplazar dientes perdidos, restaurando función y estética.",
+    modalContent: {
+      title: "Implantes Dentales",
+      subtitle: "La solución permanente para dientes perdidos",
+      details: [
+        "Implantes de titanio de alta calidad",
+        "Coronas sobre implantes",
+        "Puentes sobre implantes",
+        "Dentaduras fijas sobre implantes",
+        "Cirugía guiada por computadora",
+        "Carga inmediata cuando es posible"
+      ],
+      benefits: "Los implantes dentales son la opción más duradera y natural para reemplazar dientes perdidos, preservando el hueso y restaurando la función completa.",
+      duration: "3-6 meses proceso completo",
+      frequency: "Tratamiento único"
+    }
   }
 ];
 ---
 
-<section id="services" class="bg-white py-16 md:py-24">
+<section id="services" class="py-20 md:py-28 bg-gradient-to-b from-white to-cyan-50 relative overflow-x-hidden">
   <div class="container mx-auto px-4">
+    <!-- Encabezado de la sección -->
     <div class="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Todo lo que necesitas en un solo lugar.
+      <span class="text-cyan-600 font-medium text-sm tracking-wider uppercase">NUESTROS SERVICIOS</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-6">
+        Cuidado dental integral para toda la familia
       </h2>
-      <p class="text-lg text-gray-600">Ofrecemos una gama completa de servicios dentales para satisfacer todas tus necesidades.</p>
+      <div class="w-20 h-1 bg-cyan-500 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600">
+        Ofrecemos una amplia gama de servicios dentales utilizando tecnología avanzada y técnicas modernas para garantizar tu mejor sonrisa.
+      </p>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Tarjetas de servicios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
       {services.map((service, index) => (
-        <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fadeIn" style={`animation-delay: ${0.2 + index * 0.1}s;`}>
-          <div class="mb-4" set:html={service.icon} />
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-          <p class="text-gray-600 text-sm">{service.description}</p>
+        <div 
+          class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group animate-fadeIn" 
+          style={`animation-delay: ${0.2 + index * 0.1}s;`}
+        >
+          <div class="p-8 lg:p-10 text-center lg:text-left">
+            <!-- Icono con efecto hover -->
+            <div class="mb-2 transform group-hover:scale-110 transition-transform duration-300" set:html={service.icon} />
+            
+            <!-- Título con línea decorativa -->
+            <h3 class="text-xl font-semibold text-gray-800 mb-4 relative">
+              {service.title}
+              <span class="block w-12 h-0.5 bg-cyan-500 mt-3 mx-auto lg:mx-0 group-hover:w-20 transition-all duration-300"></span>
+            </h3>
+            
+            <!-- Descripción -->
+            <p class="text-gray-600 leading-relaxed">
+              {service.description}
+            </p>
+            
+            <!-- Botón "Saber más" -->
+            <button 
+              class="inline-flex items-center text-cyan-600 font-medium mt-6 group-hover:text-cyan-700 transition-colors cursor-pointer"
+              onclick={`openServiceModal('${service.id}')`}
+            >
+              Saber más
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
         </div>
       ))}
     </div>
+    
+    <!-- Llamada a la acción -->
+    <div class="mt-16 text-center">
+      <a 
+        href="#contact" 
+        class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+      >
+        AGENDAR UNA CITA
+      </a>
+    </div>
   </div>
+  
+  <!-- Elementos decorativos -->
+  <div class="absolute left-0 bottom-0 w-24 h-24 bg-cyan-100 rounded-full opacity-50 blur-2xl -translate-x-1/2 translate-y-1/2"></div>
+  <div class="absolute right-0 top-1/4 w-32 h-32 bg-cyan-100 rounded-full opacity-40 blur-3xl translate-x-1/2"></div>
 </section>
+
+<!-- Modales para cada servicio -->
+{services.map((service) => (
+  <div 
+    id={`modal-${service.id}`}
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden"
+  >
+    <div 
+      class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300"
+      onclick="event.stopPropagation()"
+    >
+      <!-- Header del modal -->
+      <div class="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white p-6 rounded-t-2xl">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-2xl font-bold mb-2">{service.modalContent.title}</h3>
+            <p class="text-cyan-100">{service.modalContent.subtitle}</p>
+          </div>
+          <button 
+            class="text-white hover:text-gray-200 transition-colors"
+            onclick={`closeServiceModal('${service.id}')`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Contenido del modal -->
+      <div class="p-6">
+        <!-- Información detallada -->
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold text-gray-800 mb-4">¿Qué incluye este tratamiento?</h4>
+          <ul class="space-y-2">
+            {service.modalContent.details.map((detail) => (
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-500 mt-0.5 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-600">{detail}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Beneficios -->
+        <div class="mb-6 bg-cyan-50 p-4 rounded-lg">
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">Beneficios</h4>
+          <p class="text-gray-600">{service.modalContent.benefits}</p>
+        </div>
+        
+        <!-- Información adicional -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h5 class="font-semibold text-gray-800 mb-1">Duración</h5>
+            <p class="text-gray-600 text-sm">{service.modalContent.duration}</p>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h5 class="font-semibold text-gray-800 mb-1">Frecuencia</h5>
+            <p class="text-gray-600 text-sm">{service.modalContent.frequency}</p>
+          </div>
+        </div>
+        
+        <!-- Botones de acción -->
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a 
+            href="#contact" 
+            class="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white text-center py-3 px-6 rounded-lg font-semibold transition-colors"
+            onclick={`closeServiceModal('${service.id}')`}
+          >
+            Agendar Consulta
+          </a>
+          <button 
+            class="flex-1 border border-gray-300 hover:bg-gray-50 text-gray-700 py-3 px-6 rounded-lg font-semibold transition-colors"
+            onclick={`closeServiceModal('${service.id}')`}
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
+
+<script>
+  declare global {
+    interface Window {
+      openServiceModal: (serviceId: string) => void;
+      closeServiceModal: (serviceId: string) => void;
+    }
+  }
+  // Funciones globales para manejar modales
+  window.openServiceModal = function(serviceId: string) {
+    const modal = document.getElementById('modal-' + serviceId);
+    if (modal) {
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        const content = modal.querySelector('.bg-white');
+        if (content) {
+          content.classList.remove('scale-95');
+          content.classList.add('scale-100');
+        }
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeServiceModal = function(serviceId: string) {
+    const modal = document.getElementById('modal-' + serviceId);
+    if (modal) {
+      const content = modal.querySelector('.bg-white');
+      if (content) {
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+      }
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+      document.body.style.overflow = 'auto';
+    }
+  };
+
+  // Cerrar modal al hacer clic en el fondo
+  document.addEventListener('click', function(e) {
+    const targetElement = e.target as HTMLElement;
+    if (targetElement && targetElement.id && targetElement.id.startsWith('modal-')) {
+      const serviceId = targetElement.id.replace('modal-', '');
+      window.closeServiceModal(serviceId);
+    }
+  });
+
+  // Cerrar modal con tecla Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const openModal = document.querySelector('[id^="modal-"]:not(.hidden)');
+      if (openModal) {
+        const serviceId = openModal.id.replace('modal-', '');
+        window.closeServiceModal(serviceId);
+      }
+    }
+  });
+</script>

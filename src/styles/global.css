@@ -9,6 +9,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   @apply bg-white text-gray-800 antialiased;
+  
 }
 
 /* Estilos para las animaciones si no se usa la utilidad de Tailwind directamente */
