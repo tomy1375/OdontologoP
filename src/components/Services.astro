@@ -1,0 +1,55 @@
+---
+const services = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>`,
+    title: "Cuidado Preventivo",
+    description: "Chequeos regulares y tratamientos con flúor para prevenir caries y enfermedades de las encías."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+    title: "Cuidado Restaurativo",
+    description: "Empastes, coronas, puentes y dentaduras para restaurar dientes dañados o faltantes."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    title: "Cuidado Ortodóntico",
+    description: "Brackets y alineadores transparentes para enderezar los dientes y corregir problemas de mordida."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    title: "Cirugía Oral",
+    description: "Extracciones, eliminación de muelas del juicio y otros procedimientos quirúrgicos."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+    title: "Odontología Cosmética",
+    description: "Blanqueamiento dental, carillas y otros procedimientos para mejorar la apariencia de los dientes."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
+    title: "Implantes Dentales",
+    description: "Los implantes dentales son una forma popular y efectiva de reemplazar dientes perdidos."
+  }
+];
+---
+
+<section id="services" class="bg-white py-16 md:py-24">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Todo lo que necesitas en un solo lugar.
+      </h2>
+      <p class="text-lg text-gray-600">Ofrecemos una gama completa de servicios dentales para satisfacer todas tus necesidades.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fadeIn" style={`animation-delay: ${0.2 + index * 0.1}s;`}>
+          <div class="mb-4" set:html={service.icon} />
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
+          <p class="text-gray-600 text-sm">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
