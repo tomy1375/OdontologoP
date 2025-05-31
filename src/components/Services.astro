@@ -129,7 +129,7 @@ const services = [
 ];
 ---
 
-<section id="services" class="py-20 md:py-28 bg-gradient-to-b from-white to-cyan-50 relative overflow-x-hidden">
+<section id="services" class="py-20 md:py-28 bg-gradient-to-b from-white to-cyan-50 relative overflow-hidden">
   <div class="container mx-auto px-4">
     <!-- Encabezado de la sección -->
     <div class="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
@@ -151,21 +151,21 @@ const services = [
           style={`animation-delay: ${0.2 + index * 0.1}s;`}
         >
           <div class="p-8 lg:p-10 text-center lg:text-left">
-            <!-- Icono con efecto hover -->
-            <div class="mb-2 transform group-hover:scale-110 transition-transform duration-300" set:html={service.icon} />
+            {/* Icono sin efecto de escalado hover */}
+            <div class="mb-2" set:html={service.icon} />
             
-            <!-- Título con línea decorativa -->
+            {/* Título con línea decorativa */}
             <h3 class="text-xl font-semibold text-gray-800 mb-4 relative">
               {service.title}
               <span class="block w-12 h-0.5 bg-cyan-500 mt-3 mx-auto lg:mx-0 group-hover:w-20 transition-all duration-300"></span>
             </h3>
             
-            <!-- Descripción -->
+            {/* Descripción */}
             <p class="text-gray-600 leading-relaxed">
               {service.description}
             </p>
             
-            <!-- Botón "Saber más" -->
+            {/* Botón "Saber más" */}
             <button 
               class="inline-flex items-center text-cyan-600 font-medium mt-6 group-hover:text-cyan-700 transition-colors cursor-pointer"
               onclick={`openServiceModal('${service.id}')`}
