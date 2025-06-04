@@ -1,0 +1,301 @@
+---
+---
+<script is:inline>
+  // Verificar si GSAP ya está cargado
+  if (typeof gsap === 'undefined') {
+    // Cargar GSAP desde CDN si no está disponible
+    const loadScript = (src) => {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    };
+
+    // Cargar GSAP y plugins
+    Promise.all([
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js'),
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js')
+    ]).then(() => {
+      console.log('GSAP cargado desde CDN');
+      // Iniciar animaciones después de cargar GSAP
+      setTimeout(initAnimations, 100);
+    }).catch(err => {
+      console.error('Error al cargar GSAP:', err);
+    });
+  } else {
+    // Si GSAP ya está disponible, iniciar animaciones
+    setTimeout(initAnimations, 100);
+  }
+
+  function initAnimations() {
+    console.log('Inicializando animaciones GSAP');
+    
+    // Registrar plugins
+    if (typeof gsap !== 'undefined' && gsap.registerPlugin && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      console.log('ScrollTrigger registrado correctamente');
+    } else {
+      console.warn('No se pudo registrar ScrollTrigger, puede que no esté disponible');
+      return; // Salir si no podemos registrar ScrollTrigger
+    }
+    
+    // Animación de la navbar
+    const navbarTl = gsap.timeline();
+    
+    // Logo aparece primero
+    navbarTl.from('.gsap-logo', {
+      opacity: 0,
+      y: -50,
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+    
+    // Navegación aparece desde la izquierda
+    navbarTl.from('.gsap-nav', {
+      opacity: 0,
+      x: -30,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.4');
+    
+    // Botones aparecen desde la derecha
+    navbarTl.from('.gsap-buttons, .gsap-mobile-buttons', {
+      opacity: 0,
+      x: 30,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.6');
+    
+    // Animación del hero
+    const heroTl = gsap.timeline({
+      delay: 0.2
+    });
+    
+    // Badge aparece primero
+    heroTl.from('.gsap-hero-badge', {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      ease: 'back.out(1.7)'
+    });
+    
+    // Título aparece con efecto de split
+    heroTl.from('.gsap-hero-title', {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: 'power3.out'
+    }, '-=0.4');
+    
+    // Texto aparece
+    heroTl.from('.gsap-hero-text', {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.6');
+    
+    // Botón aparece
+    heroTl.from('.gsap-hero-button', {
+      opacity: 0,
+      y: 20,
+      scale: 0.9,
+      duration: 0.8,
+      ease: 'back.out(1.7)'
+    }, '-=0.4');
+    
+    // Flecha aparece con rebote
+    heroTl.from('.gsap-hero-arrow', {
+      opacity: 0,
+      y: -20,
+      duration: 0.8,
+      ease: 'bounce.out'
+    }, '-=0.2');
+    
+    // Animación del botón de WhatsApp
+    gsap.to('.gsap-whatsapp', {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      ease: 'elastic.out(1, 0.5)',
+      delay: 1.5
+    });
+    
+    // Animaciones al hacer scroll
+    
+    // Animación para secciones al hacer scroll (excluyendo la sección de planes)
+    const sections = document.querySelectorAll("section:not(#top):not(#planes)");
+    sections.forEach(section => {
+      gsap.from(section.querySelectorAll("h2, p, .grid > *"), {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          once: true // Importante: solo se ejecuta una vez
+        },
+        opacity: 0,
+        y: 30,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+    });
+    
+    // Función para actualizar el navbar según el tema actual
+    function updateNavbarStyle(scrolled = false) {
+      const header = document.querySelector("header");
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      if (!header) return;
+      
+      // Detener cualquier animación en curso
+      gsap.killTweensOf(header);
+      
+      if (isDark) {
+        gsap.to(header, {
+          backgroundColor: scrolled ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0.8)",
+          backdropFilter: scrolled ? "blur(10px)" : "blur(5px)",
+          boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.2)" : "none",
+          duration: 0.3,
+          overwrite: true
+        });
+      } else {
+        gsap.to(header, {
+          backgroundColor: scrolled ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.8)",
+          backdropFilter: scrolled ? "blur(10px)" : "blur(5px)",
+          boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.1)" : "none",
+          duration: 0.3,
+          overwrite: true
+        });
+      }
+    }
+    
+    // Animación para el navbar al hacer scroll
+    ScrollTrigger.create({
+      start: 10,
+      end: 11,
+      onEnter: () => {
+        updateNavbarStyle(true);
+      },
+      onLeaveBack: () => {
+        updateNavbarStyle(false);
+      }
+    });
+    
+    // Escuchar cambios de tema
+    document.addEventListener('themeChanged', () => {
+      // Actualizar el navbar según la posición actual del scroll
+      updateNavbarStyle(window.scrollY > 10);
+    });
+    
+    // Animaciones específicas para la sección de planes
+    const planesSection = document.getElementById('planes');
+    if (planesSection) {
+      // Animación para el título y descripción
+      gsap.from(planesSection.querySelectorAll("h2, p.text-center"), {
+        scrollTrigger: {
+          trigger: planesSection,
+          start: "top 80%",
+          once: true // Importante: solo se ejecuta una vez
+        },
+        opacity: 0,
+        y: 30,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+      
+      // Animación para las tarjetas de planes
+      const planCards = planesSection.querySelectorAll(".plan-card");
+      if (planCards.length > 0) {
+        console.log("Inicializando animaciones para", planCards.length, "tarjetas de planes");
+        
+        // Asegurarse de que las tarjetas sean visibles inicialmente
+        gsap.set(planCards, { opacity: 1 });
+        
+        // Animación de entrada
+        gsap.fromTo(planCards, 
+          { y: 50, opacity: 0, scale: 0.95 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: planesSection,
+              start: "top 70%",
+              once: true // Importante: solo se ejecuta una vez
+            }
+          }
+        );
+        
+        // Animación para la etiqueta "Popular"
+        const popularBadge = planesSection.querySelector('.popular-badge');
+        if (popularBadge) {
+          gsap.fromTo(popularBadge,
+            { scale: 0, rotation: -15, opacity: 0 },
+            {
+              scale: 1,
+              rotation: 0,
+              opacity: 1,
+              duration: 0.6,
+              delay: 0.6, // Retrasar para que aparezca después de las tarjetas
+              ease: "elastic.out(1.2, 0.5)",
+              scrollTrigger: {
+                trigger: planesSection,
+                start: "top 70%",
+                once: true
+              }
+            }
+          );
+        }
+        
+        // Configurar animaciones de hover para las tarjetas - Versión mejorada
+        planCards.forEach(card => {
+          // Crear una variable para rastrear si la animación está en curso
+          let isAnimating = false;
+          
+          card.addEventListener('mouseenter', function() {
+            if (isAnimating) return; // Evitar múltiples animaciones simultáneas
+            isAnimating = true;
+            
+            gsap.to(this, {
+              y: -10,
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+              duration: 0.2, // Duración más corta para respuesta más rápida
+              ease: "power1.out", // Ease más simple para mejor rendimiento
+              onComplete: () => { isAnimating = false; }
+            });
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            if (isAnimating) return; // Evitar múltiples animaciones simultáneas
+            isAnimating = true;
+            
+            gsap.to(this, {
+              y: 0,
+              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+              duration: 0.2, // Duración más corta para respuesta más rápida
+              ease: "power1.out", // Ease más simple para mejor rendimiento
+              onComplete: () => { isAnimating = false; }
+            });
+          });
+        });
+      }
+    }
+    
+    console.log('Animaciones GSAP inicializadas');
+  }
+  
+  // Crear un evento personalizado para el cambio de tema
+  if (typeof window !== 'undefined') {
+    window.dispatchThemeChange = function() {
+      document.dispatchEvent(new CustomEvent('themeChanged'));
+    };
+  }
+</script>
